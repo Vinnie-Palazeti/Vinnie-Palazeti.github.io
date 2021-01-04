@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>machine learning on Vincenzo Palazeti</title>
+    <link>https://Vinnie-Palazeti.github.io/categories/machine-learning/</link>
+    <description>Recent content in machine learning on Vincenzo Palazeti</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Variable Effect Curve</title>
+      <link>https://Vinnie-Palazeti.github.io/p/variable-effect-curve/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Vinnie-Palazeti.github.io/p/variable-effect-curve/</guid>
+      <description>Prediction is cool, useful, and good. I, for some reason, am not impressed by it, especially with continuous outcomes. Every time I fit a Deep NN, XGBoost, LASSO, Random Forest, etc. I am left empty. My MSE is incredibly low. Hurray. Why is this the case? What variables are important? To what degree is each imput important?
+I understand the different goals of inference &amp;amp; prediction, but these methods are so powerful; they must be holding important information!</description>
+    </item>
+    
+  </channel>
+</rss>

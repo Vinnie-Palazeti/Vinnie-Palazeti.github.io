@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Prediction is cool, useful, and good. I, for some reason, am not impressed by it, especially with continuous outcomes. Every time I fit a Deep NN, XGBoost, LASSO, Random Forest, etc. I am left empty. My MSE is incredibly low. Hurray. Why is this the case? What variables are important? To what degree is each imput important?
+I understand the different goals of inference &amp;amp; prediction, but these methods are so powerful; they must be holding important information!'><title>Variable Effect Curve</title>
+
+<link rel='canonical' href='https://Vinnie-Palazeti.github.io/p/variable-effect-curve/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Variable Effect Curve'>
+<meta property='og:description' content='Prediction is cool, useful, and good. I, for some reason, am not impressed by it, especially with continuous outcomes. Every time I fit a Deep NN, XGBoost, LASSO, Random Forest, etc. I am left empty. My MSE is incredibly low. Hurray. Why is this the case? What variables are important? To what degree is each imput important?
+I understand the different goals of inference &amp;amp; prediction, but these methods are so powerful; they must be holding important information!'>
+<meta property='og:url' content='https://Vinnie-Palazeti.github.io/p/variable-effect-curve/'>
+<meta property='og:site_name' content='Vincenzo Palazeti'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='inference' /><meta property='article:tag' content='machine learning' /><meta property='article:tag' content='regression' /><meta property='article:tag' content='visualization' /><meta property='article:published_time' content='2020-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://Vinnie-Palazeti.github.io/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg' />
+<meta name="twitter:title" content="Variable Effect Curve">
+<meta name="twitter:description" content="Prediction is cool, useful, and good. I, for some reason, am not impressed by it, especially with continuous outcomes. Every time I fit a Deep NN, XGBoost, LASSO, Random Forest, etc. I am left empty. My MSE is incredibly low. Hurray. Why is this the case? What variables are important? To what degree is each imput important?
+I understand the different goals of inference &amp;amp; prediction, but these methods are so powerful; they must be holding important information!"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://Vinnie-Palazeti.github.io/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub0a1ddecaa18a04fb3247dbd10180dda_239842_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://Vinnie-Palazeti.github.io">Vincenzo Palazeti</a></h1>
+        <h2 class="site-description">Hey Folks.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://Vinnie-Palazeti.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/variable-effect-curve/">
+                
+                    <img src="pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" loading="lazy" alt="Featured image of post Variable Effect Curve" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/inference/" >
+                inference
+            </a>
+        
+            <a href="/categories/machine-learning/" >
+                machine learning
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/variable-effect-curve/">Variable Effect Curve</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jan 01, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>Prediction is cool, useful, and good. I, for some reason, am not impressed by it, especially with continuous outcomes. Every time I fit a Deep NN, XGBoost, LASSO, Random Forest, etc. I am left empty. My MSE is incredibly low. Hurray. Why is this the case? What variables are important? To what degree is each imput important?</p>
+<p>I understand the different goals of inference &amp; prediction, but these methods are so powerful; they must be holding important information! I am interested in individual or joint inference on inputs to deep neural nets with continuous outcomes.</p>
+<p>There are proposed inference methods. Guidotti (2018) provides a survey of the literature. He lays out four main definitions for &ldquo;Black Box Model Explanation.&rdquo; Three of which involve implementing a secondary model, outside of the neural net, that provides easier to understand rules for prediction. A decision tree is an example of such a secondary model. The last defintion, the one that interests me, he calls the Black Box Inspection Problem, which is defined as:</p>
+<blockquote>
+<p>Given a black box predictor b and a dataset D = {X, Y}, the black box inspection problem consists in finding a function f : (X → Y) × (X^n × Y^n) → V which takes as input a black box b and a dataset D, and returns a visual representation of the behavior of the black box, f(b, D) = v with V being the set of all possible representations.</p>
+</blockquote>
+<p>There are other methods, which construct test statistics using derivatives of node weights, but I am uninterested.</p>
+<p>The Variable Effect Curve (VEC)</p>
+<p>Krause (2016) implements a VEC, overlayed with other graphics, for a classification problem. A VEC plots the Partial Dependence with fixed feature values on the x-axis, and the corresponding outcome probability on the y-axis.</p>
+<p>There are two ways to find the probability at each input values. The formula recommended by Krause et al. is:</p>
+<p><img src="Partial_Depencence_Form.png" alt="Image 1"  /></p>
+<p>where <em>pred</em> is the prediction function, x_i is the input vector, v is the input value, and N is the number of rows in the design matrix. Every value for the feature in question is changed to v, then the prediction function is used on the new design matrix, and finally predictions are averaged. This process is iterated over a specific interval of v&rsquo;s, usually the range of the feature.</p>
+<p>The other method is to predict using the average level of all inputs other than a specific feature, which is iterated over its range. Both seem like valid approaches, while the latter could run into issues with dummy variables. If a covariate is either a 1 or 0, what does it mean to use an average, say 0.36, in prediction? I can&rsquo;t think of a statistical reason of why this is flawed, but it doesn&rsquo;t pass the intuition check.</p>
+<p>I implemented both versions of the Variable Effect Curve in python using the Wine Dataset. As noted above, I am interested in continuous outcomes. Therefore, this is not a classification problem, and (again) therefore I cannot use predicted probabilities. The outcome variable is wine quality, which has the range [3,8]. Instead of probabilites, I used the predicted outcome: wine quality score.</p>
+<p>The covariate ranges are wildly different, so prior to modeling I scaled the predictors to [0,1]. Then, to predict over their &ldquo;range&rdquo;, I used 30 equally spaced values as inputs. I did this individually for each predictor. Here is the code for the former approach, which changes every value of a feature in the design matrix to one of the 30 &ldquo;v&rdquo; values</p>
+<p>(VEC change every row)</p>
+<p>and the visual output</p>
+<p>(VEC change all row).png</p>
+<p>What I love about this is how incredibly interpretable it is. The positive effect alcohol &amp; fixed acidity is clearly stated. Nice.</p>
+<p>Here is the code for predicting on the average value of each input, only iterively altering a single feature over the equal spaced range of v</p>
+<p>(VEC AVERAGE CODE)</p>
+<p>and the visual</p>
+<p>(VEC AVERAGE PIC)</p>
+<p>The general trends remain true, though the predictions with this formula are more irratic.</p>
+<p>An issue with VECs used with deep nn models is the stocastic optimization function. Stocastic Gradient Descent or ADAM will usually not produce the same node weights in consecutive runs. This means that our graphs could look different, sometimes wildly different. Here is another VEC graph using the latter formula from above</p>
+<p>(AVERAGE DIFFERENT)</p>
+<p>This is no bueno. We see large shifts from the previous graph, especially at the ends. However, using the former formula, where we change every row of the design matrix to the value v, the outcomes are far more consistent</p>
+<p>(VEC EVERY ROW BUT EH)</p>
+<p>Another issue is the lack of any actual statistical tests. There are no distributions. Each value of x has a single prediction. There is a bootstrap opportunity here!</p>
+<p>Vinnie</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/inference/">inference</a>
+        
+            <a href="/tags/machine-learning/">machine learning</a>
+        
+            <a href="/tags/regression/">regression</a>
+        
+            <a href="/tags/visualization/">visualization</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Vincenzo Palazeti
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
