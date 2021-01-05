@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data. The research goals provided by the office were:
+  Identifying how market trends differentially impact communities of color and varying socioeconomic status; and
+  Determining whether Milwaukee property assessments change disproportionately according to demographic factors.
+  The data was 8500 home sales from 2018 to 2019, which included 60 house characteristics, e.'><title>Milwaukee Assessment</title>
+
+<link rel='canonical' href='https://Vinnie-Palazeti.github.io/p/milwaukee-assessment/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Milwaukee Assessment'>
+<meta property='og:description' content='I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data. The research goals provided by the office were:
+  Identifying how market trends differentially impact communities of color and varying socioeconomic status; and
+  Determining whether Milwaukee property assessments change disproportionately according to demographic factors.
+  The data was 8500 home sales from 2018 to 2019, which included 60 house characteristics, e.'>
+<meta property='og:url' content='https://Vinnie-Palazeti.github.io/p/milwaukee-assessment/'>
+<meta property='og:site_name' content='Vincenzo Palazeti'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='inference' /><meta property='article:tag' content='Milwaukee' /><meta property='article:tag' content='Assessment to Sale Ratio' /><meta property='article:published_time' content='2020-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-01-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://Vinnie-Palazeti.github.io/p/milwaukee-assessment/rando.jpg' />
+<meta name="twitter:title" content="Milwaukee Assessment">
+<meta name="twitter:description" content="I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data. The research goals provided by the office were:
+  Identifying how market trends differentially impact communities of color and varying socioeconomic status; and
+  Determining whether Milwaukee property assessments change disproportionately according to demographic factors.
+  The data was 8500 home sales from 2018 to 2019, which included 60 house characteristics, e."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://Vinnie-Palazeti.github.io/p/milwaukee-assessment/rando.jpg' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub0a1ddecaa18a04fb3247dbd10180dda_239842_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://Vinnie-Palazeti.github.io">Vincenzo Palazeti</a></h1>
+        <h2 class="site-description">Hey Folks.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://Vinnie-Palazeti.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/milwaukee-assessment/">
+                <img src="/p/milwaukee-assessment/rando_hu65ac93192e7f579550509eaf1e1bf388_129059_800x0_resize_q75_box.jpg"
+                        srcset="/p/milwaukee-assessment/rando_hu65ac93192e7f579550509eaf1e1bf388_129059_800x0_resize_q75_box.jpg 800w, /p/milwaukee-assessment/rando_hu65ac93192e7f579550509eaf1e1bf388_129059_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="494" 
+                        loading="lazy"
+                        alt="Featured image of post Milwaukee Assessment" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/milwaukee/" >
+                Milwaukee
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/milwaukee-assessment/">Milwaukee Assessment</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jan 01, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>I had the opportunity to research the City of Milwaukee&rsquo;s housing market. The Assessor&rsquo;s Office of Milwaukee provided the data. The research goals provided by the office were:</p>
+<ol>
+<li>
+<p>Identifying how market trends differentially impact communities of color and varying
+socioeconomic status; and</p>
+</li>
+<li>
+<p>Determining whether Milwaukee property assessments change disproportionately
+according to demographic factors.</p>
+</li>
+</ol>
+<p>The data was 8500 home sales from 2018 to 2019, which included 60 house characteristics, e.g. Building Type, Number of Rooms, Kitchen Quality, Overall Condition, Square Footage, etc. Two of these measures, Sale Price &amp; Assessment Price, comprise the variable of interest: The Assessment-to-Sale Ratio (ATS). This is the Assessment Price divided by the Sale price. The ATS ratio measures assessment precision. An ATS ratio below 1 indicates an underassessment, while a value above 1 is an overassessment. The mean ATS ratio is not of concern. If the average ATS ratio is 0.9, and observations are normally distributed around that value, then everyone is misassessed equally. This situation is fine. Issues arise when homes are misassessed in predictable ways. The Assessor&rsquo;s Office wanted to know if demographic factors, specifically racial and/or economic, affected home assessment.</p>
+<p>Each observation had the Census Tract where the home resided, so The American Community Survey (ACS) had the demographic data I needed. The ACS has a wild number of variables, like 27,000 or so. Pulling this info from the Social Explorer website is annoying, so I used Python to query the API.</p>
+<p>Check it out: <a href="https://github.com/Vinnie-Palazeti/Census/tree/main/CensusData">https://github.com/Vinnie-Palazeti/Census/tree/main/CensusData</a>.</p>
+<p>I adapted code I found online to most of the geographies the ACS API provides. With this script I pulled Hispanic, Black, and Not-Hispanic White Population, Median Income, Renter-Occupied Housing Units, Income-Below-Poverty Population, etc.</p>
+<p>I won&rsquo;t bore you with the data cleaning. There was a lot.</p>
+<p>The end goal is to employ multivariate regression techniques to assess the effect that population demographics have on the ATS ratio. Before I could jump into modeling, though, there were several obstacles.</p>
+<p>First, observations in regression must be Independent &amp; Identically Distrbuted. My data breaks this rule. Homes within the same neighborhood are spatially correlated. Therefore, to capture the variance associated with this correlation I used a Hierarchical Linear Model. This is a fancy way of saying I coded Census Tract as a Random Effect, which is a fancy way of saying each Census Tract shares a common variance. With this method, I can determine the variance <em>within</em> and <em>between</em> Census Tracts, while also not violate an assumption of regression. Very good.</p>
+<p>Next, the ATS ratio is exactly that: a ratio. This breaks another rule of regression, namely that the outcome ought to be continuous. Many dispatch this rule, especially when dealing with percentages (ratios bounded [0,1]). This can lead to absurd predictions above or below the bounds. The ATS ratio is different; it is bounded by [0,∞]. This poses interesting issues.</p>
+<p>I found a 1933 article by Richard Kronmal discussing a toy dataset provided by Neyman. Kronmal says that regression coefficients in this situation are actually the joint effect, or interaction, of the coefficient and the denominator of the dependent variable. So, when regressing on the ATS ratio, each covariate in the model is actually an interaction term of Sale Price (denominator of ATS ratio). This is wild. Due to this complexity, I opted to run two sets of models. The first using the ATS ratio as the dependent variable, and the second using Assessment Price as the dependent variable and including Sale Price as a covariate. The latter structure seems more appropriate to me.</p>
+<p>Then, I noticed that for each Census Tract, the population of Black, White, and Hispanic people constituded roughly 95% of the population. In regression, covariates which are ratios with a common denomicator provides the same information. For example, each side of a percentage, say 0.6 and 0.4, relays the same information. Including both is not appropriate.</p>
+<p>This is the situation with Milwaukee&rsquo;s demographics. Where the population of Black people is 60%, the population of Whites is 25 to 35%, with Hispanics filling in most of the remaining gap. Therefore, including all three is no good. I opted to include only Black and Hispanic populations as independent variables, which are the specific variables of interest in this study.</p>
+<p>Finally, building high dimensional models has always felt like soft p hacking. Using 50 covariates and selectingly inferring on significant findings strays, in my opinion, so far from traditional experimental statistics that it renders the whole project null. Research decisions, even those made <strong>prior</strong> to data analysis, <a class="link" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.694.7217&amp;rep=rep1&amp;type=pdf"  target="_blank" rel="noopener"
+    >shape statistical findings.</a> Therefore, I setup this analysis to only infer upon the independent variables of interest, namely Percent Black Population and Percent Hispanic Population. All other covariates are controls.</p>
+<p>I used HLMs to determine the effect of Percent Black and Hispanic population on assessment values. The models produced significant negative effects for both variables. The Simple vs Specific setup was used to determine if increasing the specificity of housing characteristics increased or decreased the effect of population demographics. I&rsquo;ve seen this methodology used in observational studies, though the results, to my knowledge, can&rsquo;t be quantified statistically. I believe the intuition is that including more precise housing characteristics ought to decrease the effect of population demographics, if the market valued the former over the latter. In the ATS ratio models I find that increasing home characteristics actually <strong>increases</strong> the effect of population demographics. However, the models with Assessment Value as the outcome variable produce mixed results.</p>
+<p><figure style="flex-grow: 328; flex-basis: 788px">
+		<a href="/p/milwaukee-assessment/ATS_Ratio.jpg" data-size="2266x690"><img src="/p/milwaukee-assessment/ATS_Ratio.jpg"
+				srcset="/p/milwaukee-assessment/ATS_Ratio_hu55b27eb1372cc136b2be4848ecb51f02_120725_480x0_resize_q75_box.jpg 480w, /p/milwaukee-assessment/ATS_Ratio_hu55b27eb1372cc136b2be4848ecb51f02_120725_1024x0_resize_q75_box.jpg 1024w"
+				width="2266"
+				height="690"
+				loading="lazy"
+				alt="ATS Ratio Model">
+		</a>
+		
+		<figcaption>ATS Ratio Model</figcaption>
+		
+	</figure></p>
+<p>All variables were scaled &amp; centered prior to regressing. Therefore, a one standard deviation change in a coefficient is associated with a percent standard deviation change in the outcome. In table six we see -0.1218 as the coefficient for Percent Black in the Simple model. The interpretation is: a one standard deviation increase in the percent Black population is associated with a 0.12 standard deviation decrease in the assessment ratio. This is 12% of a standard deviation. The standard deviation of the assessment ratio, in our data, is about 0.13, so 12% of this is 0.016 or 1.16%. Therefore, observations in a neighborhood with a one standard deviation increase in the percent Black are subject to about a 1.16% decrease in their ATS Ratio.</p>
+<p>In the Specific model we see this coefficient jump to −0.4642, which relates to a 6.14% decrease in their ATS Ratio. This is a significant decrease. When properties are over- or under-assessed differently, tax revenue is disproportionately raised. Our model reports that there is a decrease in assessment as the Percent Black or Hispanic rises, which results in lower taxation. Though, taxation is not the only concern; accessing credit could be made increasingly difficult through consistent underassessment.</p>
+<p>Here are the results from the models using Assessment Price as the dependent variable. Coefficients can be read in the same way as above.</p>
+<p><figure style="flex-grow: 337; flex-basis: 809px">
+		<a href="/p/milwaukee-assessment/Assess_Price.jpg" data-size="2246x666"><img src="/p/milwaukee-assessment/Assess_Price.jpg"
+				srcset="/p/milwaukee-assessment/Assess_Price_hubcfa795814c9c6954ab012fea21a9475_115227_480x0_resize_q75_box.jpg 480w, /p/milwaukee-assessment/Assess_Price_hubcfa795814c9c6954ab012fea21a9475_115227_1024x0_resize_q75_box.jpg 1024w"
+				width="2246"
+				height="666"
+				loading="lazy"
+				alt="Assessment Price Model">
+		</a>
+		
+		<figcaption>Assessment Price Model</figcaption>
+		
+	</figure></p>
+<p>Interpretation should be done cautiously. Attempting to nail down the specific percentage effect of any single parameter is difficult in high dimensional modeling. Therefore, I opt to take a holistic overview. I observe a constant, negative, and significant impact from Percent Black and Percent Hispanic. I infer from these facts that a negative relationship exists between these parameters and their respective dependent variable.</p>
+<p>If you want to slog through my full interpretation of all the results check out the paper <a class="link" href="https://github.com/Vinnie-Palazeti/Milwaukee-Property-Assessment/blob/master/Final%20Paper%20%26%20Presentation/Milwaukee%20Final%20Report.pdf"  target="_blank" rel="noopener"
+    >here.</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/inference/">inference</a>
+        
+            <a href="/tags/milwaukee/">Milwaukee</a>
+        
+            <a href="/tags/assessment-to-sale-ratio/">Assessment to Sale Ratio</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Vincenzo Palazeti
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
