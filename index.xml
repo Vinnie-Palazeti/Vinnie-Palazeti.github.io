@@ -59,7 +59,7 @@
 		&lt;figcaption&gt;VEC Code&lt;/figcaption&gt;
 		
 	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;and the visual output&lt;/p&gt;
+&lt;p&gt;and the visual output (click image for higher quality)&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 103; flex-basis: 248px&#34;&gt;
 		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_all_rows.jpg&#34; data-size=&#34;707x683&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_all_rows.jpg&#34;
 				srcset=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_all_rows_huc49702a369cef67919fba8155c118b28_74617_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_all_rows_huc49702a369cef67919fba8155c118b28_74617_1024x0_resize_q75_box.jpg 1024w&#34;
@@ -87,12 +87,45 @@
 		
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;and the visual&lt;/p&gt;
-&lt;p&gt;(VEC AVERAGE PIC)&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 105; flex-basis: 252px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_with_Ave.jpg&#34; data-size=&#34;490x466&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_with_Ave.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_with_Ave_hu8afb9303f4cf1c8bb762a7cf1d00544a_54206_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_with_Ave_hu8afb9303f4cf1c8bb762a7cf1d00544a_54206_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;490&#34;
+				height=&#34;466&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;VEC Visual&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;VEC Visual&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;The general trends remain true, though the predictions with this formula are more irratic.&lt;/p&gt;
 &lt;p&gt;An issue with VECs used with deep nn models is the stocastic optimization function. Stocastic Gradient Descent or ADAM will usually not produce the same node weights in consecutive runs. This means that our graphs could look different, sometimes wildly different. Here is another VEC graph using the latter formula from above&lt;/p&gt;
-&lt;p&gt;(AVERAGE DIFFERENT)&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 103; flex-basis: 248px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_Ave_diff.jpg&#34; data-size=&#34;483x466&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_Ave_diff.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_Ave_diff_huf1e745e9d224da308bb129b07021e097_47809_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_Ave_diff_huf1e745e9d224da308bb129b07021e097_47809_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;483&#34;
+				height=&#34;466&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;VEC Visual&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;VEC Visual&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;This is no bueno. We see large shifts from the previous graph, especially at the ends. However, using the former formula, where we change every row of the design matrix to the value v, the outcomes are far more consistent&lt;/p&gt;
-&lt;p&gt;(VEC EVERY ROW BUT EH)&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 103; flex-basis: 248px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_all_row_diff.jpg&#34; data-size=&#34;483x466&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_all_row_diff.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_all_row_diff_hu3ba1e21ce2dcdf05175f9d339ce7e977_52213_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_all_row_diff_hu3ba1e21ce2dcdf05175f9d339ce7e977_52213_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;483&#34;
+				height=&#34;466&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;VEC Visual&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;VEC Visual&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;Another issue is the lack of any actual statistical tests. There are no distributions. Each value of x has a single prediction. There is a bootstrap opportunity here!&lt;/p&gt;
 &lt;p&gt;Vinnie&lt;/p&gt;
 </description>
