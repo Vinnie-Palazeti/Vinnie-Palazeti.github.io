@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Milwaukee on Vincenzo Palazeti</title>
+    <link>https://Vinnie-Palazeti.github.io/tags/milwaukee/</link>
+    <description>Recent content in Milwaukee on Vincenzo Palazeti</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/tags/milwaukee/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Milwaukee Assessment Project</title>
+      <link>https://Vinnie-Palazeti.github.io/p/milwaukee-assessment-project/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Vinnie-Palazeti.github.io/p/milwaukee-assessment-project/</guid>
+      <description>I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data. The research goals provided by the office were:
+  Identifying how market trends differentially impact communities of color and varying socioeconomic status; and
+  Determining whether Milwaukee property assessments change disproportionately according to demographic factors.
+  The data was 8500 home sales from 2018 to 2019, which included 60 house characteristics, e.</description>
+    </item>
+    
+  </channel>
+</rss>
