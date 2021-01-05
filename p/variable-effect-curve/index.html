@@ -241,7 +241,18 @@ I understand the different goals of inference &amp;amp; prediction, but these me
 <p>The Variable Effect Curve (VEC)</p>
 <p>Krause (2016) implements a VEC, overlayed with other graphics, for a classification problem. A VEC plots the Partial Dependence with fixed feature values on the x-axis, and the corresponding outcome probability on the y-axis.</p>
 <p>There are two ways to find the probability at each input values. The formula recommended by Krause et al. is:</p>
-<p><img src="Partial_Depencence_Form.png" alt="Image 1"  /></p>
+<p><figure style="flex-grow: 455; flex-basis: 1093px">
+		<a href="/p/variable-effect-curve/Partial_Dependence_Form.jpg" data-size="747x164"><img src="/p/variable-effect-curve/Partial_Dependence_Form.jpg"
+				srcset="/p/variable-effect-curve/Partial_Dependence_Form_hu2e79da07014f6d8a2800f41fd2ddab35_20753_480x0_resize_q75_box.jpg 480w, /p/variable-effect-curve/Partial_Dependence_Form_hu2e79da07014f6d8a2800f41fd2ddab35_20753_1024x0_resize_q75_box.jpg 1024w"
+				width="747"
+				height="164"
+				loading="lazy"
+				alt="Image 1">
+		</a>
+		
+		<figcaption>Image 1</figcaption>
+		
+	</figure></p>
 <p>where <em>pred</em> is the prediction function, x_i is the input vector, v is the input value, and N is the number of rows in the design matrix. Every value for the feature in question is changed to v, then the prediction function is used on the new design matrix, and finally predictions are averaged. This process is iterated over a specific interval of v&rsquo;s, usually the range of the feature.</p>
 <p>The other method is to predict using the average level of all inputs other than a specific feature, which is iterated over its range. Both seem like valid approaches, while the latter could run into issues with dummy variables. If a covariate is either a 1 or 0, what does it mean to use an average, say 0.36, in prediction? I can&rsquo;t think of a statistical reason of why this is flawed, but it doesn&rsquo;t pass the intuition check.</p>
 <p>I implemented both versions of the Variable Effect Curve in python using the Wine Dataset. As noted above, I am interested in continuous outcomes. Therefore, this is not a classification problem, and (again) therefore I cannot use predicted probabilities. The outcome variable is wine quality, which has the range [3,8]. Instead of probabilites, I used the predicted outcome: wine quality score.</p>
