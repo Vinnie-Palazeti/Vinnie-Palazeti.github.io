@@ -47,12 +47,45 @@
 &lt;p&gt;The other method is to predict using the average level of all inputs other than a specific feature, which is iterated over its range. Both seem like valid approaches, while the latter could run into issues with dummy variables. If a covariate is either a 1 or 0, what does it mean to use an average, say 0.36, in prediction? I can&amp;rsquo;t think of a statistical reason of why this is flawed, but it doesn&amp;rsquo;t pass the intuition check.&lt;/p&gt;
 &lt;p&gt;I implemented both versions of the Variable Effect Curve in python using the Wine Dataset. As noted above, I am interested in continuous outcomes. Therefore, this is not a classification problem, and (again) therefore I cannot use predicted probabilities. The outcome variable is wine quality, which has the range [3,8]. Instead of probabilites, I used the predicted outcome: wine quality score.&lt;/p&gt;
 &lt;p&gt;The covariate ranges are wildly different, so prior to modeling I scaled the predictors to [0,1]. Then, to predict over their &amp;ldquo;range&amp;rdquo;, I used 30 equally spaced values as inputs. I did this individually for each predictor. Here is the code for the former approach, which changes every value of a feature in the design matrix to one of the 30 &amp;ldquo;v&amp;rdquo; values&lt;/p&gt;
-&lt;p&gt;(VEC change every row)&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 362; flex-basis: 869px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_change_every_row.jpg&#34; data-size=&#34;1116x308&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_change_every_row.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_change_every_row_hu9833381f58faf51f2669f8d7c7c953cf_71568_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_change_every_row_hu9833381f58faf51f2669f8d7c7c953cf_71568_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1116&#34;
+				height=&#34;308&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;VEC Code&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;VEC Code&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;and the visual output&lt;/p&gt;
-&lt;p&gt;(VEC change all row).png&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 103; flex-basis: 248px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_change_all_row.jpg&#34; data-size=&#34;707x683&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_change_all_row.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_change_all_row_hua36d1544455dd8361797db22ea1804cd_73979_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_change_all_row_hua36d1544455dd8361797db22ea1804cd_73979_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;707&#34;
+				height=&#34;683&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;VEC Visual&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;VEC Visual&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;What I love about this is how incredibly interpretable it is. The positive effect alcohol &amp;amp; fixed acidity is clearly stated. Nice.&lt;/p&gt;
 &lt;p&gt;Here is the code for predicting on the average value of each input, only iterively altering a single feature over the equal spaced range of v&lt;/p&gt;
-&lt;p&gt;(VEC AVERAGE CODE)&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 336; flex-basis: 807px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_AVERAGE_CODE.jpg&#34; data-size=&#34;1104x328&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_AVERAGE_CODE.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_AVERAGE_CODE_hu8e95bfb9e34d7a0a24d07bdb28395c12_76781_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/variable-effect-curve/VEC_AVERAGE_CODE_hu8e95bfb9e34d7a0a24d07bdb28395c12_76781_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1104&#34;
+				height=&#34;328&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;VEC Code&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;VEC Code&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;and the visual&lt;/p&gt;
 &lt;p&gt;(VEC AVERAGE PIC)&lt;/p&gt;
 &lt;p&gt;The general trends remain true, though the predictions with this formula are more irratic.&lt;/p&gt;

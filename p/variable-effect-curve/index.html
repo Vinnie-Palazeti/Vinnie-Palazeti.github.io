@@ -257,12 +257,45 @@ I understand the different goals of inference &amp;amp; prediction, but these me
 <p>The other method is to predict using the average level of all inputs other than a specific feature, which is iterated over its range. Both seem like valid approaches, while the latter could run into issues with dummy variables. If a covariate is either a 1 or 0, what does it mean to use an average, say 0.36, in prediction? I can&rsquo;t think of a statistical reason of why this is flawed, but it doesn&rsquo;t pass the intuition check.</p>
 <p>I implemented both versions of the Variable Effect Curve in python using the Wine Dataset. As noted above, I am interested in continuous outcomes. Therefore, this is not a classification problem, and (again) therefore I cannot use predicted probabilities. The outcome variable is wine quality, which has the range [3,8]. Instead of probabilites, I used the predicted outcome: wine quality score.</p>
 <p>The covariate ranges are wildly different, so prior to modeling I scaled the predictors to [0,1]. Then, to predict over their &ldquo;range&rdquo;, I used 30 equally spaced values as inputs. I did this individually for each predictor. Here is the code for the former approach, which changes every value of a feature in the design matrix to one of the 30 &ldquo;v&rdquo; values</p>
-<p>(VEC change every row)</p>
+<p><figure style="flex-grow: 362; flex-basis: 869px">
+		<a href="/p/variable-effect-curve/VEC_change_every_row.jpg" data-size="1116x308"><img src="/p/variable-effect-curve/VEC_change_every_row.jpg"
+				srcset="/p/variable-effect-curve/VEC_change_every_row_hu9833381f58faf51f2669f8d7c7c953cf_71568_480x0_resize_q75_box.jpg 480w, /p/variable-effect-curve/VEC_change_every_row_hu9833381f58faf51f2669f8d7c7c953cf_71568_1024x0_resize_q75_box.jpg 1024w"
+				width="1116"
+				height="308"
+				loading="lazy"
+				alt="VEC Code">
+		</a>
+		
+		<figcaption>VEC Code</figcaption>
+		
+	</figure></p>
 <p>and the visual output</p>
-<p>(VEC change all row).png</p>
+<p><figure style="flex-grow: 103; flex-basis: 248px">
+		<a href="/p/variable-effect-curve/VEC_change_all_row.jpg" data-size="707x683"><img src="/p/variable-effect-curve/VEC_change_all_row.jpg"
+				srcset="/p/variable-effect-curve/VEC_change_all_row_hua36d1544455dd8361797db22ea1804cd_73979_480x0_resize_q75_box.jpg 480w, /p/variable-effect-curve/VEC_change_all_row_hua36d1544455dd8361797db22ea1804cd_73979_1024x0_resize_q75_box.jpg 1024w"
+				width="707"
+				height="683"
+				loading="lazy"
+				alt="VEC Visual">
+		</a>
+		
+		<figcaption>VEC Visual</figcaption>
+		
+	</figure></p>
 <p>What I love about this is how incredibly interpretable it is. The positive effect alcohol &amp; fixed acidity is clearly stated. Nice.</p>
 <p>Here is the code for predicting on the average value of each input, only iterively altering a single feature over the equal spaced range of v</p>
-<p>(VEC AVERAGE CODE)</p>
+<p><figure style="flex-grow: 336; flex-basis: 807px">
+		<a href="/p/variable-effect-curve/VEC_AVERAGE_CODE.jpg" data-size="1104x328"><img src="/p/variable-effect-curve/VEC_AVERAGE_CODE.jpg"
+				srcset="/p/variable-effect-curve/VEC_AVERAGE_CODE_hu8e95bfb9e34d7a0a24d07bdb28395c12_76781_480x0_resize_q75_box.jpg 480w, /p/variable-effect-curve/VEC_AVERAGE_CODE_hu8e95bfb9e34d7a0a24d07bdb28395c12_76781_1024x0_resize_q75_box.jpg 1024w"
+				width="1104"
+				height="328"
+				loading="lazy"
+				alt="VEC Code">
+		</a>
+		
+		<figcaption>VEC Code</figcaption>
+		
+	</figure></p>
 <p>and the visual</p>
 <p>(VEC AVERAGE PIC)</p>
 <p>The general trends remain true, though the predictions with this formula are more irratic.</p>
