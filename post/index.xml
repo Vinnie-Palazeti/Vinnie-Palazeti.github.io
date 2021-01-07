@@ -6,14 +6,16 @@
     <description>Recent content in Posts on Vincenzo Palazeti</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>First Post</title>
-      <link>https://Vinnie-Palazeti.github.io/p/first-post/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <title>Sensitivity Analysis</title>
+      <link>https://Vinnie-Palazeti.github.io/p/sensitivity-analysis/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://Vinnie-Palazeti.github.io/p/first-post/</guid>
-      <description>This is my first post. Nothing to see here</description>
+      <guid>https://Vinnie-Palazeti.github.io/p/sensitivity-analysis/</guid>
+      <description>Another inference post. I imagine there will be many more of these.
+What variables affect deep NN prediction? Sensitivity Analysis was purposed by Kewley et al. (2000) to answer this question. Here&amp;rsquo;s the gist:
+After fitting a model, in this case a deep NN, use the average of every feature for prediction. To test the model&amp;rsquo;s sensitivity to a specific feature, iterate over a range and make predictions at each point, while keeping all other features at their average level.</description>
     </item>
     
     <item>
@@ -36,35 +38,6 @@
       <guid>https://Vinnie-Palazeti.github.io/p/variable-effect-curve/</guid>
       <description>Prediction is cool, useful, and good. I, for some reason, am not impressed by it, especially with continuous outcomes. Every time I fit a Deep NN, XGBoost, LASSO, Random Forest, etc. I am left empty. My MSE is incredibly low. Hurray. Why is this the case? What variables are important? To what degree is each imput important?
 I understand the different goals of inference &amp;amp; prediction, but these methods are so powerful; they must be holding important information!</description>
-    </item>
-    
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://Vinnie-Palazeti.github.io/p/markdown-syntax-guide/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://Vinnie-Palazeti.github.io/p/markdown-syntax-guide/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Rich Content</title>
-      <link>https://Vinnie-Palazeti.github.io/p/rich-content/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://Vinnie-Palazeti.github.io/p/rich-content/</guid>
-      <description>&lt;p&gt;Hugo ships with several &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Math Typesetting</title>
-      <link>https://Vinnie-Palazeti.github.io/p/math-typesetting/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://Vinnie-Palazeti.github.io/p/math-typesetting/</guid>
-      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
     </item>
     
   </channel>

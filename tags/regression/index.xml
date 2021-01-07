@@ -6,7 +6,18 @@
     <description>Recent content in regression on Vincenzo Palazeti</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sensitivity Analysis</title>
+      <link>https://Vinnie-Palazeti.github.io/p/sensitivity-analysis/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Vinnie-Palazeti.github.io/p/sensitivity-analysis/</guid>
+      <description>Another inference post. I imagine there will be many more of these.
+What variables affect deep NN prediction? Sensitivity Analysis was purposed by Kewley et al. (2000) to answer this question. Here&amp;rsquo;s the gist:
+After fitting a model, in this case a deep NN, use the average of every feature for prediction. To test the model&amp;rsquo;s sensitivity to a specific feature, iterate over a range and make predictions at each point, while keeping all other features at their average level.</description>
+    </item>
+    
     <item>
       <title>Variable Effect Curve</title>
       <link>https://Vinnie-Palazeti.github.io/p/variable-effect-curve/</link>
