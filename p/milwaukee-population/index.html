@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data.
+This was my first ever Map Visualization. It&amp;rsquo;s a pretty wild start if you ask me. I wrote some python code that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.
+The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind.'><title>Milwaukee Population</title>
+
+<link rel='canonical' href='https://Vinnie-Palazeti.github.io/p/milwaukee-population/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Milwaukee Population'>
+<meta property='og:description' content='I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data.
+This was my first ever Map Visualization. It&amp;rsquo;s a pretty wild start if you ask me. I wrote some python code that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.
+The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind.'>
+<meta property='og:url' content='https://Vinnie-Palazeti.github.io/p/milwaukee-population/'>
+<meta property='og:site_name' content='Vincenzo Palazeti'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Milwaukee' /><meta property='article:tag' content='Visualzation' /><meta property='article:tag' content='Geo-Mapping' /><meta property='article:published_time' content='2020-01-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-01-08T00:00:00&#43;00:00'/><meta property='og:image' content='https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop.jpg' />
+<meta name="twitter:title" content="Milwaukee Population">
+<meta name="twitter:description" content="I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data.
+This was my first ever Map Visualization. It&amp;rsquo;s a pretty wild start if you ask me. I wrote some python code that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.
+The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop.jpg' />
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hub0a1ddecaa18a04fb3247dbd10180dda_239842_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://Vinnie-Palazeti.github.io">Vincenzo Palazeti</a></h1>
+        <h2 class="site-description">Hey Folks.</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        
+            <li id="dark-mode-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                <span>Dark Mode</span>
+            </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://Vinnie-Palazeti.github.io" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/milwaukee-population/">
+                <img src="/p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_800x0_resize_q75_box.jpg"
+                        srcset="/p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_800x0_resize_q75_box.jpg 800w, /p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="1018" 
+                        loading="lazy"
+                        alt="Featured image of post Milwaukee Population" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/milwaukee/" >
+                Milwaukee
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/milwaukee-population/">Milwaukee Population</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jan 08, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>I had the opportunity to research the City of Milwaukee&rsquo;s housing market. The Assessor&rsquo;s Office of Milwaukee provided the data.</p>
+<p>This was my first ever Map Visualization. It&rsquo;s a pretty wild start if you ask me. I wrote some python <a class="link" href="https://github.com/Vinnie-Palazeti/Census/tree/main/CensusData"  target="_blank" rel="noopener"
+    >code</a> that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.</p>
+<p>The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind.</p>
+<p><figure style="flex-grow: 78; flex-basis: 188px">
+		<a href="/p/milwaukee-population/Black_pop.jpg" data-size="1650x2100"><img src="/p/milwaukee-population/Black_pop.jpg"
+				srcset="/p/milwaukee-population/Black_pop_hud6a767dbdddc432ae6a3425963d41629_300575_480x0_resize_q75_box.jpg 480w, /p/milwaukee-population/Black_pop_hud6a767dbdddc432ae6a3425963d41629_300575_1024x0_resize_q75_box.jpg 1024w"
+				width="1650"
+				height="2100"
+				loading="lazy"
+				alt="Milwaukee Black Population">
+		</a>
+		
+		<figcaption>Milwaukee Black Population</figcaption>
+		
+	</figure></p>
+<p><figure style="flex-grow: 78; flex-basis: 188px">
+		<a href="/p/milwaukee-population/White_pop.jpg" data-size="1650x2100"><img src="/p/milwaukee-population/White_pop.jpg"
+				srcset="/p/milwaukee-population/White_pop_hud6a767dbdddc432ae6a3425963d41629_293877_480x0_resize_q75_box.jpg 480w, /p/milwaukee-population/White_pop_hud6a767dbdddc432ae6a3425963d41629_293877_1024x0_resize_q75_box.jpg 1024w"
+				width="1650"
+				height="2100"
+				loading="lazy"
+				alt="Milwaukee White Population">
+		</a>
+		
+		<figcaption>Milwaukee White Population</figcaption>
+		
+	</figure></p>
+<p>Just below the mid section, there is a circular area that is dark blue in both plots. This is where the Hispanic population lives.</p>
+<p><figure style="flex-grow: 78; flex-basis: 188px">
+		<a href="/p/milwaukee-population/His_pop.jpg" data-size="1650x2100"><img src="/p/milwaukee-population/His_pop.jpg"
+				srcset="/p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_480x0_resize_q75_box.jpg 480w, /p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_1024x0_resize_q75_box.jpg 1024w"
+				width="1650"
+				height="2100"
+				loading="lazy"
+				alt="Milwaukee Hispanic Population">
+		</a>
+		
+		<figcaption>Milwaukee Hispanic Population</figcaption>
+		
+	</figure></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/milwaukee/">Milwaukee</a>
+        
+            <a href="/tags/visualzation/">Visualzation</a>
+        
+            <a href="/tags/geo-mapping/">Geo-Mapping</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/p/milwaukee-assessment/">
+        
+        
+            <div class="article-image">
+                <img src="/p/milwaukee-assessment/rando.7053dd56ec78c5847d2483d33bbf65e2_hu65ac93192e7f579550509eaf1e1bf388_129059_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-cFPdVux4xYR9JIPTO79l4g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Milwaukee Assessment</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Vincenzo Palazeti
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

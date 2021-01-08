@@ -6,7 +6,56 @@
         <description>Recent content on Vincenzo Palazeti</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 08 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Milwaukee Population</title>
+        <link>https://Vinnie-Palazeti.github.io/p/milwaukee-population/</link>
+        <pubDate>Wed, 08 Jan 2020 00:00:00 +0000</pubDate>
+        
+        <guid>https://Vinnie-Palazeti.github.io/p/milwaukee-population/</guid>
+        <description>&lt;img src="https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop.jpg" alt="Featured image of post Milwaukee Population" /&gt;&lt;p&gt;I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data.&lt;/p&gt;
+&lt;p&gt;This was my first ever Map Visualization. It&amp;rsquo;s a pretty wild start if you ask me. I wrote some python &lt;a class=&#34;link&#34; href=&#34;https://github.com/Vinnie-Palazeti/Census/tree/main/CensusData&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;code&lt;/a&gt; that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.&lt;/p&gt;
+&lt;p&gt;The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind.&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 78; flex-basis: 188px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/Black_pop.jpg&#34; data-size=&#34;1650x2100&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/Black_pop.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/Black_pop_hud6a767dbdddc432ae6a3425963d41629_300575_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/milwaukee-population/Black_pop_hud6a767dbdddc432ae6a3425963d41629_300575_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1650&#34;
+				height=&#34;2100&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;Milwaukee Black Population&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Milwaukee Black Population&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 78; flex-basis: 188px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/White_pop.jpg&#34; data-size=&#34;1650x2100&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/White_pop.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/White_pop_hud6a767dbdddc432ae6a3425963d41629_293877_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/milwaukee-population/White_pop_hud6a767dbdddc432ae6a3425963d41629_293877_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1650&#34;
+				height=&#34;2100&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;Milwaukee White Population&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Milwaukee White Population&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Just below the mid section, there is a circular area that is dark blue in both plots. This is where the Hispanic population lives.&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 78; flex-basis: 188px&#34;&gt;
+		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop.jpg&#34; data-size=&#34;1650x2100&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop.jpg&#34;
+				srcset=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1650&#34;
+				height=&#34;2100&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;Milwaukee Hispanic Population&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Milwaukee Hispanic Population&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Sensitivity Analysis</title>
         <link>https://Vinnie-Palazeti.github.io/p/sensitivity-analysis/</link>
         <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
