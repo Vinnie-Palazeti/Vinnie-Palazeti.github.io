@@ -26,8 +26,8 @@
 		&lt;figcaption&gt;ATS Ratio&lt;/figcaption&gt;
 		
 	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;If you recall, in my previous post I mentioned that I snipped observations outside the 1.5 x IQR (inter-quartile range). This made the data look very normal, like a pretty bell curve.&lt;/p&gt;
-&lt;p&gt;Because I grabbed data from the American Community Survey (ACS), I could determine the demographics of observations. I plotted the distribution of ATS ratios for house sales in majority black neighborhoods, which looks like this:&lt;/p&gt;
+&lt;p&gt;If you recall, in my previous post I mentioned that I snipped observations outside the 1.5 x IQR (inter-quartile range). This made the data look very normal, a pretty bell curve.&lt;/p&gt;
+&lt;p&gt;Because I grabbed data from the American Community Survey (ACS), I could determine the neighborhood demographics of observations. I plotted the distribution of ATS ratios for house sales in majority black neighborhoods, which looks like this:&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 200; flex-basis: 480px&#34;&gt;
 		&lt;a href=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/Black_ATS_Ratio_Dist.jpg&#34; data-size=&#34;1280x640&#34;&gt;&lt;img src=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/Black_ATS_Ratio_Dist.jpg&#34;
 				srcset=&#34;https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/Black_ATS_Ratio_Dist_hud6a767dbdddc432ae6a3425963d41629_73260_480x0_resize_q75_box.jpg 480w, https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/Black_ATS_Ratio_Dist_hud6a767dbdddc432ae6a3425963d41629_73260_1024x0_resize_q75_box.jpg 1024w&#34;
@@ -56,8 +56,8 @@
 &lt;p&gt;&amp;hellip; I&amp;rsquo;d say no.&lt;/p&gt;
 &lt;p&gt;Ok. It&amp;rsquo;s visually obvious that these distributions are different, but how can we inspect this statistically? We want to know if homes in majority black neighborhoods are more likely to have lower ATS ratios. The word &amp;ldquo;likely&amp;rdquo; brings Logistic Regression to mind. How can we apply it in this case?&lt;/p&gt;
 &lt;p&gt;I created an indicator variable. If a home sale had an Assessment to Sale ratio one standard deviation below the average I assigned it a 1. This indicator is our response! We now have a (0,1) outcome, so Logistic Regression is viable! Cool.&lt;/p&gt;
-&lt;p&gt;As in the previous analysis, I used Hierarchical Mixed Modeling to capture the variance in the spatially correlated data, i.e. Census Tract was used as a Random Effect. Also, I did propsensity score matching to compare homes in majority black neighborhoods to similar homes in non-majoirty black neighborhoods. This is a quasi-experimental setup that makes observational studies more robust.&lt;/p&gt;
-&lt;p&gt;The results were wild. In the final model, which controls for the most tract-level &amp;amp; home-level characteristics possible, a one standard deviation increase in the Percent Black Population corresponded to a 367% increase in the odds of an ATS ratio one standed below the mean.&lt;/p&gt;
+&lt;p&gt;As in the previous analysis, I used Hierarchical Mixed Modeling to capture the variance in the spatially correlated data, i.e. Census Tract was used as a Random Effect. Also, I did propensity score matching to compare homes in majority black neighborhoods to similar homes in non-majority black neighborhoods. This is a quasi-experimental setup that makes observational studies more robust.&lt;/p&gt;
+&lt;p&gt;The results were wild. In the final model, which controls for the most tract-level &amp;amp; home-level characteristics possible, a one standard deviation increase in the Percent Black Population corresponded to a 367% increase in the odds of an ATS ratio one standard deviation below the mean.&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s one of the largest odds ratios (4.67) I have ever seen in real data. I have never seen an analysis like this, so if anyone knows a fatal statistical error I have committed email me!&lt;/p&gt;
 &lt;p&gt;Here is the final table:&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 257; flex-basis: 617px&#34;&gt;
