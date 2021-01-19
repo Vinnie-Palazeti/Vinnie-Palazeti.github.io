@@ -2,23 +2,26 @@
 <html lang="en-us">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data.
-This was my first ever Map Visualization. It&amp;rsquo;s a pretty wild start if you ask me. I wrote some python code that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.
-The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind.'><title>Milwaukee Population</title>
+While playing around with data visualizations I noticed something. The distribution of the Assessment to Sale (ATS) ratio looks like this:
+ ATS Ratio 
+If you recall, in my previous post I mentioned that I snipped observations outside the 1.5 x IQR (inter-quartile range). This made the data look very normal, like a pretty bell curve.'><title>Milwaukee ATS Ratio Distribution</title>
 
-<link rel='canonical' href='https://Vinnie-Palazeti.github.io/p/milwaukee-population/'>
+<link rel='canonical' href='https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Milwaukee Population'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Milwaukee ATS Ratio Distribution'>
 <meta property='og:description' content='I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data.
-This was my first ever Map Visualization. It&amp;rsquo;s a pretty wild start if you ask me. I wrote some python code that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.
-The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind.'>
-<meta property='og:url' content='https://Vinnie-Palazeti.github.io/p/milwaukee-population/'>
+While playing around with data visualizations I noticed something. The distribution of the Assessment to Sale (ATS) ratio looks like this:
+ ATS Ratio 
+If you recall, in my previous post I mentioned that I snipped observations outside the 1.5 x IQR (inter-quartile range). This made the data look very normal, like a pretty bell curve.'>
+<meta property='og:url' content='https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/'>
 <meta property='og:site_name' content='Vincenzo Palazeti'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Milwaukee' /><meta property='article:tag' content='Visualzation' /><meta property='article:tag' content='Geo-Mapping' /><meta property='article:published_time' content='2020-01-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-01-08T00:00:00&#43;00:00'/><meta property='og:image' content='https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop.jpg' />
-<meta name="twitter:title" content="Milwaukee Population">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='inference' /><meta property='article:tag' content='Milwaukee' /><meta property='article:tag' content='Assessment to Sale Ratio' /><meta property='article:published_time' content='2020-01-18T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-01-18T00:00:00&#43;00:00'/><meta property='og:image' content='https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/rando.jpg' />
+<meta name="twitter:title" content="Milwaukee ATS Ratio Distribution">
 <meta name="twitter:description" content="I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data.
-This was my first ever Map Visualization. It&amp;rsquo;s a pretty wild start if you ask me. I wrote some python code that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.
-The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://Vinnie-Palazeti.github.io/p/milwaukee-population/His_pop.jpg' />
+While playing around with data visualizations I noticed something. The distribution of the Assessment to Sale (ATS) ratio looks like this:
+ ATS Ratio 
+If you recall, in my previous post I mentioned that I snipped observations outside the 1.5 x IQR (inter-quartile range). This made the data look very normal, like a pretty bell curve."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/rando.jpg' />
     </head>
     <body class="">
     <script>
@@ -189,13 +192,13 @@ The population stratification in Milwaukee is striking. These images are almost 
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/milwaukee-population/">
-                <img src="/p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_800x0_resize_q75_box.jpg"
-                        srcset="/p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_800x0_resize_q75_box.jpg 800w, /p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_1600x0_resize_q75_box.jpg 1600w"
+            <a href="/p/milwaukee-ats-ratio-distribution/">
+                <img src="/p/milwaukee-ats-ratio-distribution/rando_hud6a767dbdddc432ae6a3425963d41629_69761_800x0_resize_q75_box.jpg"
+                        srcset="/p/milwaukee-ats-ratio-distribution/rando_hud6a767dbdddc432ae6a3425963d41629_69761_800x0_resize_q75_box.jpg 800w, /p/milwaukee-ats-ratio-distribution/rando_hud6a767dbdddc432ae6a3425963d41629_69761_1600x0_resize_q75_box.jpg 1600w"
                         width="800" 
-                        height="1018" 
+                        height="400" 
                         loading="lazy"
-                        alt="Featured image of post Milwaukee Population" />
+                        alt="Featured image of post Milwaukee ATS Ratio Distribution" />
                 
             </a>
         </div>
@@ -213,7 +216,7 @@ The population stratification in Milwaukee is striking. These images are almost 
     
 
     <h2 class="article-title">
-        <a href="/p/milwaukee-population/">Milwaukee Population</a>
+        <a href="/p/milwaukee-ats-ratio-distribution/">Milwaukee ATS Ratio Distribution</a>
     </h2>
 
     <footer class="article-time">
@@ -225,52 +228,73 @@ The population stratification in Milwaukee is striking. These images are almost 
 
 
 
-        <time class="article-time--published">Jan 08, 2020</time>
+        <time class="article-time--published">Jan 18, 2020</time>
     </footer></div>
 </header>
 
     <section class="article-content">
     <p>I had the opportunity to research the City of Milwaukee&rsquo;s housing market. The Assessor&rsquo;s Office of Milwaukee provided the data.</p>
-<p>This was my first ever Map Visualization. It&rsquo;s a pretty wild start if you ask me. I wrote some python <a class="link" href="https://github.com/Vinnie-Palazeti/Census/tree/main/CensusData"  target="_blank" rel="noopener"
-    >code</a> that queries the Census API. This data came from the American Community Survey (ACS) five year estimates.</p>
-<p>The population stratification in Milwaukee is striking. These images are almost non-overlapping sets; it really blows my mind.</p>
-<p><figure style="flex-grow: 78; flex-basis: 188px">
-		<a href="/p/milwaukee-population/Black_pop.jpg" data-size="1650x2100"><img src="/p/milwaukee-population/Black_pop.jpg"
-				srcset="/p/milwaukee-population/Black_pop_hud6a767dbdddc432ae6a3425963d41629_300575_480x0_resize_q75_box.jpg 480w, /p/milwaukee-population/Black_pop_hud6a767dbdddc432ae6a3425963d41629_300575_1024x0_resize_q75_box.jpg 1024w"
-				width="1650"
-				height="2100"
+<p>While playing around with data visualizations I noticed something. The distribution of the Assessment to Sale (ATS) ratio looks like this:</p>
+<p><figure style="flex-grow: 200; flex-basis: 480px">
+		<a href="/p/milwaukee-ats-ratio-distribution/ATS_Ratio_Dist.jpg" data-size="1280x640"><img src="/p/milwaukee-ats-ratio-distribution/ATS_Ratio_Dist.jpg"
+				srcset="/p/milwaukee-ats-ratio-distribution/ATS_Ratio_Dist_hud6a767dbdddc432ae6a3425963d41629_69761_480x0_resize_q75_box.jpg 480w, /p/milwaukee-ats-ratio-distribution/ATS_Ratio_Dist_hud6a767dbdddc432ae6a3425963d41629_69761_1024x0_resize_q75_box.jpg 1024w"
+				width="1280"
+				height="640"
 				loading="lazy"
-				alt="Milwaukee Black Population">
+				alt="ATS Ratio">
 		</a>
 		
-		<figcaption>Milwaukee Black Population</figcaption>
+		<figcaption>ATS Ratio</figcaption>
 		
 	</figure></p>
-<p><figure style="flex-grow: 78; flex-basis: 188px">
-		<a href="/p/milwaukee-population/His_pop.jpg" data-size="1650x2100"><img src="/p/milwaukee-population/His_pop.jpg"
-				srcset="/p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_480x0_resize_q75_box.jpg 480w, /p/milwaukee-population/His_pop_hud6a767dbdddc432ae6a3425963d41629_295709_1024x0_resize_q75_box.jpg 1024w"
-				width="1650"
-				height="2100"
+<p>If you recall, in my previous post I mentioned that I snipped observations outside the 1.5 x IQR (inter-quartile range). This made the data look very normal, like a pretty bell curve.</p>
+<p>Because I grabbed data from the American Community Survey (ACS), I could determine the demographics of observations. I plotted the distribution of ATS ratios for house sales in majority black neighborhoods, which looks like this:</p>
+<p><figure style="flex-grow: 200; flex-basis: 480px">
+		<a href="/p/milwaukee-ats-ratio-distribution/Black_ATS_Ratio_Dist.jpg" data-size="1280x640"><img src="/p/milwaukee-ats-ratio-distribution/Black_ATS_Ratio_Dist.jpg"
+				srcset="/p/milwaukee-ats-ratio-distribution/Black_ATS_Ratio_Dist_hud6a767dbdddc432ae6a3425963d41629_73260_480x0_resize_q75_box.jpg 480w, /p/milwaukee-ats-ratio-distribution/Black_ATS_Ratio_Dist_hud6a767dbdddc432ae6a3425963d41629_73260_1024x0_resize_q75_box.jpg 1024w"
+				width="1280"
+				height="640"
 				loading="lazy"
-				alt="Milwaukee White Population">
+				alt="ATS Ratio">
 		</a>
 		
-		<figcaption>Milwaukee White Population</figcaption>
+		<figcaption>ATS Ratio</figcaption>
 		
 	</figure></p>
-<p>Just below the mid section, there is a circular area that is dark blue in both plots. This is where the Hispanic population lives.</p>
-<p><figure style="flex-grow: 78; flex-basis: 188px">
-		<a href="/p/milwaukee-population/White_pop.jpg" data-size="1650x2100"><img src="/p/milwaukee-population/White_pop.jpg"
-				srcset="/p/milwaukee-population/White_pop_hud6a767dbdddc432ae6a3425963d41629_293877_480x0_resize_q75_box.jpg 480w, /p/milwaukee-population/White_pop_hud6a767dbdddc432ae6a3425963d41629_293877_1024x0_resize_q75_box.jpg 1024w"
-				width="1650"
-				height="2100"
+<p>That looks.. different from the overall distribution. Much flatter. Left Tailed. I thought maybe this was due to the lower number of oberservations in this category. If we zoom in, would the distribution look similar to the overall?</p>
+<p><figure style="flex-grow: 200; flex-basis: 480px">
+		<a href="/p/milwaukee-ats-ratio-distribution/Black_Rescale_ATS_Ratio_Dist.jpg" data-size="1280x640"><img src="/p/milwaukee-ats-ratio-distribution/Black_Rescale_ATS_Ratio_Dist.jpg"
+				srcset="/p/milwaukee-ats-ratio-distribution/Black_Rescale_ATS_Ratio_Dist_hud6a767dbdddc432ae6a3425963d41629_72338_480x0_resize_q75_box.jpg 480w, /p/milwaukee-ats-ratio-distribution/Black_Rescale_ATS_Ratio_Dist_hud6a767dbdddc432ae6a3425963d41629_72338_1024x0_resize_q75_box.jpg 1024w"
+				width="1280"
+				height="640"
 				loading="lazy"
-				alt="Milwaukee Hispanic Population">
+				alt="ATS Ratio">
 		</a>
 		
-		<figcaption>Milwaukee Hispanic Population</figcaption>
+		<figcaption>ATS Ratio</figcaption>
 		
 	</figure></p>
+<p>&hellip; I&rsquo;d say no.</p>
+<p>Ok. It&rsquo;s visually obvious that these distributions are different, but how can we inspect this statistically? We want to know if homes in majority black neighborhoods are more likely to have lower ATS ratios. The word &ldquo;likely&rdquo; brings Logistic Regression to mind. How can we apply it in this case?</p>
+<p>I created an indicator variable. If a home sale had an Assessment to Sale ratio one standard deviation below the average I assigned it a 1. This indicator is our response! We now have a (0,1) outcome, so Logistic Regression is viable! Cool.</p>
+<p>As in the previous analysis, I used Hierarchical Mixed Modeling to capture the variance in the spatially correlated data, i.e. Census Tract was used as a Random Effect. Also, I did propsensity score matching to compare homes in majority black neighborhoods to similar homes in non-majoirty black neighborhoods. This is a quasi-experimental setup that makes observational studies more robust.</p>
+<p>The results were wild. In the final model, which controls for the most tract-level &amp; home-level characteristics possible, a one standard deviation increase in the Percent Black Population corresponded to a 367% increase in the odds of an ATS ratio one standed below the mean.</p>
+<p>That&rsquo;s one of the largest odds ratios (4.67) I have ever seen in real data. I have never seen an analysis like this, so if anyone knows a fatal statistical error I have committed email me!</p>
+<p>Here is the final table:</p>
+<p><figure style="flex-grow: 257; flex-basis: 617px">
+		<a href="/p/milwaukee-ats-ratio-distribution/Final_Table.jpg" data-size="1332x518"><img src="/p/milwaukee-ats-ratio-distribution/Final_Table.jpg"
+				srcset="/p/milwaukee-ats-ratio-distribution/Final_Table_hu830b1cb9ad185894eeea77a5a8bf77de_109457_480x0_resize_q75_box.jpg 480w, /p/milwaukee-ats-ratio-distribution/Final_Table_hu830b1cb9ad185894eeea77a5a8bf77de_109457_1024x0_resize_q75_box.jpg 1024w"
+				width="1332"
+				height="518"
+				loading="lazy"
+				alt="ATS Ratio">
+		</a>
+		
+		<figcaption>ATS Ratio</figcaption>
+		
+	</figure></p>
+<p>If you want to slog through my full interpretation of all the results check out the paper <a class="link" href="https://github.com/Vinnie-Palazeti/Milwaukee-Property-Assessment/blob/master/Final%20Paper%20%26%20Presentation/Milwaukee%20Final%20Report.pdf"  target="_blank" rel="noopener"
+    >here.</a></p>
 
 </section>
 
@@ -279,11 +303,11 @@ The population stratification in Milwaukee is striking. These images are almost 
     
     <section class="article-tags">
         
+            <a href="/tags/inference/">inference</a>
+        
             <a href="/tags/milwaukee/">Milwaukee</a>
         
-            <a href="/tags/visualzation/">Visualzation</a>
-        
-            <a href="/tags/geo-mapping/">Geo-Mapping</a>
+            <a href="/tags/assessment-to-sale-ratio/">Assessment to Sale Ratio</a>
         
     </section>
 
@@ -314,28 +338,6 @@ The population stratification in Milwaukee is striking. These images are almost 
                 
                     
 <article class="has-image">
-    <a href="/p/milwaukee-ats-ratio-distribution/">
-        
-        
-            <div class="article-image">
-                <img src="/p/milwaukee-ats-ratio-distribution/rando.e2a4ae5c74b2eb7ff7e92b6c459b7274_hud6a767dbdddc432ae6a3425963d41629_69761_250x150_fill_q75_box_smart1.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy" 
-                        data-key="" 
-                        data-hash="md5-4qSuXHSy63/36StsRZtydA==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Milwaukee ATS Ratio Distribution</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="has-image">
     <a href="/p/milwaukee-assessment/">
         
         
@@ -352,6 +354,28 @@ The population stratification in Milwaukee is striking. These images are almost 
 
         <div class="article-details">
             <h2 class="article-title">Milwaukee Assessment</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/p/milwaukee-population/">
+        
+        
+            <div class="article-image">
+                <img src="/p/milwaukee-population/His_pop.2a69a4935c7d3064f987d8ea96f865e2_hud6a767dbdddc432ae6a3425963d41629_295709_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-Kmmkk1x9MGT5h9jqlvhl4g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Milwaukee Population</h2>
         </div>
     </a>
 </article>

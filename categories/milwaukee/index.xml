@@ -6,7 +6,19 @@
     <description>Recent content in Milwaukee on Vincenzo Palazeti</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/categories/milwaukee/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Vinnie-Palazeti.github.io/categories/milwaukee/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Milwaukee ATS Ratio Distribution</title>
+      <link>https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/</link>
+      <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://Vinnie-Palazeti.github.io/p/milwaukee-ats-ratio-distribution/</guid>
+      <description>I had the opportunity to research the City of Milwaukee&amp;rsquo;s housing market. The Assessor&amp;rsquo;s Office of Milwaukee provided the data.
+While playing around with data visualizations I noticed something. The distribution of the Assessment to Sale (ATS) ratio looks like this:
+ ATS Ratio 
+If you recall, in my previous post I mentioned that I snipped observations outside the 1.5 x IQR (inter-quartile range). This made the data look very normal, like a pretty bell curve.</description>
+    </item>
+    
     <item>
       <title>Milwaukee Population</title>
       <link>https://Vinnie-Palazeti.github.io/p/milwaukee-population/</link>
